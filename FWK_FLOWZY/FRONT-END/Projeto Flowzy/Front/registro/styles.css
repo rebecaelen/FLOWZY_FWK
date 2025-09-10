@@ -1,0 +1,98 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  background-color: #dce9ff;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background-color: transparent;
+}
+
+.logo h1 {
+  color: #2d0076;
+  font-size: 32px;
+  text-shadow: 1px 1px #aaa;
+}
+
+nav.header-icons i {
+  font-size: 28px;
+  color: #2d0076;
+  margin-left: 20px;
+  cursor: pointer;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+nav.header-icons i:hover {
+  transform: scale(1.2);
+  color: #6633cc;
+}
+
+main {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.register-box {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+}
+
+.register-box .input-group {
+  position: relative;
+  margin-bottom: 15px;
+}
+
+.register-box .input-group input {
+  width: 100%;
+  padding: 12px 40px 12px 40px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.register-box .input-group i {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  transform: translateY(-50%);
+  font-size: 18px;
+  color: #888;
+}
+
+.register-box .input-group .toggle-password {
+  right: 12px;
+  left: auto;
+  cursor: pointer;
+}
+
+.register-box button {
+  width: 100%;
+  background-color: #9d7de3;
+  color: white;
+  padding: 12px;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+}

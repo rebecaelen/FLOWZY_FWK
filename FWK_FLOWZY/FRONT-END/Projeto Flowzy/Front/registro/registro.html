@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flowzy - Registro</title>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <h1>Flowzy</h1>
+      </div>
+      <nav class="header-icons">
+        <i class="ph ph-house"></i>
+        <i class="ph ph-user"></i>
+        <i class="ph ph-envelope"></i>
+        <i class="ph ph-globe"></i>
+      </nav>
+    </header>
+
+    <main>
+      <form class="register-box">
+        <div class="input-group">
+          <i class="ph ph-user"></i>
+          <input type="text" placeholder="Nome do Usuário" required />
+        </div>
+        <div class="input-group">
+          <i class="ph ph-envelope"></i>
+          <input type="email" placeholder="Email" required />
+        </div>
+        <div class="input-group">
+          <i class="ph ph-lock"></i>
+          <input type="password" id="password" placeholder="Senha" required />
+          <i class="ph ph-eye-slash toggle-password" onclick="togglePassword()"></i>
+        </div>
+        <button type="submit">Registrar-se</button>
+      </form>
+    </main>
+
+    <script>
+      function togglePassword() {
+        const passwordInput = document.getElementById('password');
+        const toggleIcon = document.querySelector('.toggle-password');
+        const isHidden = passwordInput.type === 'password';
+
+        passwordInput.type = isHidden ? 'text' : 'password';
+        toggleIcon.className = isHidden
+          ? 'ph ph-eye toggle-password'
+          : 'ph ph-eye-slash toggle-password';
+      }
+    </script>
+  </body>
+</html>
