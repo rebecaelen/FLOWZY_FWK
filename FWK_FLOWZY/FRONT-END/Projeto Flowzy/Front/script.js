@@ -439,3 +439,64 @@ function convertTime(time) {
   time = timeHour + ":" + timeMin + " " + timeFormat;
   return time;
 }
+let timerInterval;
+let isRunning = false;
+let isBreak = false;
+let sessionTime = 25 * 60; // 25 minutos
+let breakTime = 5 * 60; // 5 minutos
+let timeLeft = sessionTime;
+
+const timerDisplay = document.getElementById("timer");
+
+function updateDisplay() {
+  let minutes = Math.floor(timeLeft / 60);
+  let seconds = timeLeft % 60;
+  timerDisplay.textContent = 
+    `${minutes.toString().padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
+}
+
+function startTimer() {
+  if (isRunning) return; // evita múltiplos intervalos
+  isRunning = true;
+
+  timerInterval = setInterval(() => {
+    timeLeft--;
+    updateDisplay();
+
+    if (timeLeft <= 0) {
+      clearInterval(timerInterval);
+      isRunning = false;
+
+      if (!isBreak) {
+        // terminou sessão, vai para pausa
+        isBreak = true;
+        timeLeft = breakTime;
+        alert("Sessão finalizada! Hora de uma pausa.");
+        startTimer();
+      } else {
+        // terminou pausa, volta para sessão
+        isBreak = false;
+        timeLeft = sessionTime;
+        alert("Pausa finalizada! Hora de voltar ao foco.");
+        startTimer();
+      }
+    }
+  }, 1000);
+}
+
+function pauseTimer() {
+  clearInterval(timerInterval);
+  isRunning = false;
+}
+
+function resetTimer() {
+  clearInterval(timerInterval);
+  isRunning = false;
+  isBreak = false;
+  timeLeft = sessionTime;
+  updateDisplay();
+}
+
+// inicializa display
+updateDisplay();
+
